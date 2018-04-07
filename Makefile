@@ -9,3 +9,5 @@ utils/duckencoder.jar:
 
 duckencode: utils/duckencoder.jar
 	java -jar utils/duckencoder.jar -i ${SCRIPT} -o ${RUBBERDUCKY_STORAGE_PATH}/inject.bin
+	umount ${RUBBERDUCKY_STORAGE_PATH}
+	sync
