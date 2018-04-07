@@ -1,1 +1,3 @@
+MOUNT_COMMAND := gio mount -d /dev/sdb1
 RUBBERDUCKY_STORAGE_PATH := /run/media/${USER}/A87B-A154
+UNMOUNT_COMMAND := gio mount -u ${RUBBERDUCKY_STORAGE_PATH}
